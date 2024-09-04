@@ -29,6 +29,11 @@ pwd
 echo '' > /home/sinsenhor1/trabalho1.txt
 echo '' > /home/sinsenhor2/trabalho2.txt
 ```
+Correção:
+```shell
+touch /home/sinsenhor1/trabalho1.txt
+touch /home/sinsenhor2/trabalho2.txt
+```
 7. Copie o arquivo trabalho1.txt para sinsenhor2.
 ```shell
 cp sinsenhor1/trabalho1.txt sinsenhor2/
@@ -45,5 +50,5 @@ date
 
 10.  Veja todas as informações sobre seu SO, e salve-as no arquivo trabalho1.txt.
 ```shell
-uname -a > sinsenhor1/trabalho1.txt
+uname -a > /home/sinsenhor1/trabalho1.txt
 ```

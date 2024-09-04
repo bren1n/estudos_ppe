@@ -3,6 +3,7 @@
 - `ifconfig` - Exibe confirações de interface de rede
 - `history` - Histórico de comandos. Para apagar o histórico, adicionar parâmetro `-c`.
 - `ps aux` - Mostrar processos rodando na máquina
+- `top` - Mostrar processos rodando na máquina EM TEMPO REAL
 - `ls`: listagem de arquivos e diretórios
     - `-a`: mostra todos os arquivos, incluindo os ocultos
     - `-l`: lista longa
@@ -12,9 +13,14 @@
     - `-R`: lista os diretórios e subdiretórios recursivamente
 - `logout`, `exit` ou CTRL + D: logout
 - `free`: Informações de uso de memória
-- `rmdir`: remover diretório
+- `rmdir`: remover diretório vazio
 - `date`: exibe ou seta informações atuais de data
 - `uname`: exibe informações sobre o SO
+- `du`: exibe uso do disco (tamanho) para arquivos e diretórios
+- `man <comando>`: exibir manual de comando. Uma opção útil para visualizar o guia do comando é usar o parâmetro `--help`
+- `touch`: criar arquivos
+- `wc`: quantidade de linhas, palavras e bytes de um arquivo
+- `grep`: filtragem de palavras
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -31,6 +37,11 @@
 - `/boot/grub/` - Diretório do Grub (gerenciador de boot)
 - `/etc/passwd` - Arquivo que contém usuários do sistema
 
+### Visualizadores de arquivos
+- `cat`: visualização completa do arquivo, sem navegação. Também pode ser utilizado para concatenar arquivos
+- `less`: permite navegação bidirecional no arquivo, com pg up e pg down
+- `more`: navegação unidirecional do arquivo, com a tecla de espaço
+
 ### Algumas dicas para a prova
 - O diretório `/etc/` está relacionado a configurações. Diretório `/boot/` está relacionado a inicialização.
 - ID do usuário: $ (usuário comum) ou # (root). Numericamente, o id do root é 0 e id do usuário comum é >= 1000. Para usuário de apps, o valor é 1<=ID<=999.
@@ -46,4 +57,8 @@
     | 6           | 110           | rw-  | rw-        | permissão de leitura e gravação          |
     | 7           | 111           | rwx  | rwx        | permissão de leitura, gravação e execução|
 - CTRL + R abre busca para procurar último comando digitado por uma string
-- | redireciona saída de comandos. ; executa vários comandos em uma única linha
+- `;` executa vários comandos em uma única linha independente do resultado deles. `&&` executa o próximo comando somente se o anterior for bem sucedido. `||` executa o próximo comando somente se o anterior for mal sucedido.
+- `mkdir -p` cria os diretórios que não existem também
+- `cp -r` copia diretórios recursivamente
+- `>` redireciona a saída de um comando em um arquivo, sobrescrevendo seu conteúdo caso exista ou criando o arquivo caso ele não exista. `>>` adiciona ao final do arquivo. `|` redireciona saída de um comando para outro.
+- `head` mostra as primeiras 10 linhas. Já o `tail` mostra as primeiras 10 últimas. Para alterar o número de linhas, adicionar o parâmetro `-n`, seguido da quantidade desejada.
