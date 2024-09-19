@@ -17,10 +17,21 @@
 - `date`: exibe ou seta informações atuais de data
 - `uname`: exibe informações sobre o SO
 - `du`: exibe uso do disco (tamanho) para arquivos e diretórios
-- `man <comando>`: exibir manual de comando. Uma opção útil para visualizar o guia do comando é usar o parâmetro `--help`
+- `man <comando>`: exibir manual de comando. Uma opção útil para visualizar o guia do comando é usar o parâmetro `--help`. Os manuais estão disponíveis no diretório `/usr/share/man/`
 - `touch`: criar arquivos
 - `wc`: quantidade de linhas, palavras e bytes de um arquivo
 - `grep`: filtragem de palavras
+- `cut`: listagens a partir de arquivos com separadores de colunas definidos. Ex: `cut -f 1 -d: /etc/passwd`, para obter a primeira coluna cujo delimitador é :
+- `file`: determinar tipo de arquivo
+- `find`: encontrar arquivos
+- `locate`: comando mais rápido para encontrar arquivos
+- `help`: `[comando] --help` para retornar um guia rápido para comandos internos do interpretador de comandos
+- `apropos`: utilizado quando não se sabe comando nem documentação para um determinado assunto. Retorna as manpages que contém a palavra-chave utilizada
+- `whatis`: retorna a manpage de um comando, com um mecanismo de busca mais específico
+- `info`: retorna informações traduzidas do comando
+- `whereis`: retorna localização dos dados do comando e a manpage
+- `which`: retorna localiazção do binário do comando
+- `tar`: empacotamento e compressão
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -36,6 +47,10 @@
 - `/etc/network/interfaces` - Arquivo de configuração de rede
 - `/boot/grub/` - Diretório do Grub (gerenciador de boot)
 - `/etc/passwd` - Arquivo que contém usuários do sistema
+- `/etc/shadow` - Arquivo que contém senhas do sistema
+- `/etc/profile` - Arquivo que contém configurações do usuário
+- `/var/log/syslog`
+
 
 ### Visualizadores de arquivos
 - `cat`: visualização completa do arquivo, sem navegação. Também pode ser utilizado para concatenar arquivos
@@ -62,3 +77,9 @@
 - `cp -r` copia diretórios recursivamente
 - `>` redireciona a saída de um comando em um arquivo, sobrescrevendo seu conteúdo caso exista ou criando o arquivo caso ele não exista. `>>` adiciona ao final do arquivo. `|` redireciona saída de um comando para outro.
 - `head` mostra as primeiras 10 linhas. Já o `tail` mostra as primeiras 10 últimas. Para alterar o número de linhas, adicionar o parâmetro `-n`, seguido da quantidade desejada.
+
+### Arquivo passwd
+- Arquivo de configurações do usuário
+- Localizado no `/etc/passwd`
+- As senhas vem do arquivo `/etc/shadow`
+- Contém 7 colunas: nome, senha (substituída por um x), UID, GID, data de modificação, diretório base e shell
