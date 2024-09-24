@@ -48,6 +48,13 @@ INSERT INTO candidatos VALUES ('Andre', '232323', '1992-07-21', 'SP', 'andre@and
 INSERT INTO candidatos VALUES ('Camila', '545454', '1995-02-01', 'RJ', 'camila@camila', 'Joana', 'Ricardo');
 INSERT INTO candidatos VALUES ('Aline', '656565', '1997-05-09', 'MG', 'aline@aline', 'Francisca', 'Antônio');
 
+-- Correção:
+INSERT INTO candidatos VALUES
+('Joao', '123123', '1998-06-01', 'RJ', 'joao@joao', 'Maria', 'Carlos'),
+('Andre', '232323', '1992-07-21', 'SP', 'andre@andre', 'Maria', 'Marcos'),
+('Camila', '545454', '1995-02-01', 'RJ', 'camila@camila', 'Joana', 'Ricardo'),
+('Aline', '656565', '1997-05-09', 'MG', 'aline@aline', 'Francisca', 'Antônio');
+
 -- Na tabela “candidatos”, altere o CPF de João para “989898”
 UPDATE candidatos
 SET CPF = '989898'
@@ -94,6 +101,14 @@ INSERT INTO provas VALUES ('sef', '2016-01-02');
 INSERT INTO provas VALUES ('sob', '2016-01-03');
 INSERT INTO provas VALUES ('bet', '2016-01-04');
 INSERT INTO provas VALUES ('smu', '2016-01-05');
+
+-- Correção:
+INSERT INTO provas VALUES ('sin', '2016-01-01');
+('sad', '2016-01-01'),
+('sef', '2016-01-02'),
+('sob', '2016-01-03'),
+('bet', '2016-01-04'),
+('smu', '2016-01-05');
 
 -- Exclua os registros das provas que ocorrerão no dia 01/01/2016
 DELETE FROM provas
