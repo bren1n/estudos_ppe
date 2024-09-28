@@ -42,6 +42,10 @@
 - `usermod`: renomear e modificar usuário
 - `chage`: expirar senha
 - `umask`: máscara de proteção nas permissões de um arquivo, diretório ou script
+- `chgrp`: alterar grupo de arquivos
+- `chown`: altera dono e/ou grupo de arquivos e diretórios. Formato `chown dono:grupo arquivo`
+- `passwd`: alterar ou adicionar senha para usuário
+- `gpasswd`: administrar o arquivo gpasswd. Adicionar ou remover usuários de grupos
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -87,6 +91,7 @@
 - `cp -r` copia diretórios recursivamente
 - `>` redireciona a saída de um comando em um arquivo, sobrescrevendo seu conteúdo caso exista ou criando o arquivo caso ele não exista. `>>` adiciona ao final do arquivo. `|` redireciona saída de um comando para outro.
 - `head` mostra as primeiras 10 linhas. Já o `tail` mostra as primeiras 10 últimas. Para alterar o número de linhas, adicionar o parâmetro `-n`, seguido da quantidade desejada.
+- No modo texto, para abrir novos terminais, usa-se CTRL + Alt + F1-F6
 
 ### Arquivos referentes a usuários
 Há quatro arquivos básicos (todos localizados no diretório `/etc/`) que dizem respeito à administração de usuários, sendo eles:
@@ -100,3 +105,35 @@ Há quatro arquivos básicos (todos localizados no diretório `/etc/`) que dizem
 - Localizado no `/etc/passwd`
 - As senhas vem do arquivo `/etc/shadow`
 - Contém 7 colunas: nome, senha (substituída por um x), UID, GID, informações do usuário (GECOS), diretório base e shell
+
+### Colunas do `ls -l`
+- Possui 7 colunas: permissões no modo ugoa, link de acesso, dono, grupo, tamanho, data de modificação e nome e/ou diretório.
+
+### Permissão padrão para diretórios e arquivos
+- Ao criar um diretório com o comando `mkdir`, a permissão padrão é 777 (leitura, escrita e execução) para dono, grupo e outros.
+- Ao criar um arquivo com o comando `touch`, a permissão padrão é 666 (leitura e escrita) para dono, grupo e outros.
+
+### FACL (File Access Control List)
+- Lista de controle de acesso a arquivos e diretórios
+- `getfacl`: busca a permissão de um arquivo ou diretório
+- `setfacl` define permissão para arquivos e diretórios. Para definir a permissão para um usuario, usar o comando abaixo
+```shell
+setfacl -m u:usuario:rwx arquivo
+```
+A permissão é no formato "triplex". Formato UGOA utilizado para indicar para quem estamos definindo a permissão. Opção -m indica modificação. Para alterar todos os diretórios, usar *.
+
+### Permissões especiais
+- SUID (Set User ID): Focada em arquivos. Octal 4.
+- SGID (Set Group ID): Focada em diretórios. Octal 2.
+- Sticky bit: Focada no diretório /tmp/. Octal 1.
+- No modo triplex, o rws no triplex 1 indica SUID, o rws no triplex 2 indica SGID e rwt no triplex 3 indica sticy bit.
+- No modo octal, a permissão especial assumme o primeiro dígito. Ex.: 4777
+
+### Alias
+- Apelidos definidos para um comando ou conjunto de comandos
+- Definidos localmente no `~/.bashrc` e globalmente no `/etc/bash.bashrc`
+- Formato:
+```shell
+alias nomealias='comando'
+```
+- Para listar alias criados, utilizar comando `alias`. Para remover um alias, `unalias nomealias`.
