@@ -32,6 +32,16 @@
 - `whereis`: retorna localização dos dados do comando e a manpage
 - `which`: retorna localiazção do binário do comando
 - `tar`: empacotamento e compressão
+- `df -h`: tamanho do dispositivo de armazenamento, sistema de arquivos, etc
+- `mount`: visualizar partições montadas. Montar dispositivos
+- `fdisk -l`: similar ao df, porém mais completo e somente usado pelo admin
+- `tr`: traduzir ou transformar caracteres
+- `chmod`: alterar permissão em arquivos e diretórios no modo UGOA ou octal
+- `adduser`: criar novo usuário. Comando mais completo. Versão mais simples é o `useradd`
+- `userdel`: apagar usuário
+- `usermod`: renomear e modificar usuário
+- `chage`: expirar senha
+- `umask`: máscara de proteção nas permissões de um arquivo, diretório ou script
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -48,8 +58,8 @@
 - `/boot/grub/` - Diretório do Grub (gerenciador de boot)
 - `/etc/passwd` - Arquivo que contém usuários do sistema
 - `/etc/shadow` - Arquivo que contém senhas do sistema
-- `/etc/profile` - Arquivo que contém configurações do usuário
-- `/var/log/syslog`
+- `/etc/profile` - Arquivo que contém configurações e variáveis de ambiente do usuário
+- `/var/log/syslog` - Principal arquivo de syslog. Caso o syslog não esteja instalado, `/var/messages`.
 
 
 ### Visualizadores de arquivos
@@ -78,8 +88,15 @@
 - `>` redireciona a saída de um comando em um arquivo, sobrescrevendo seu conteúdo caso exista ou criando o arquivo caso ele não exista. `>>` adiciona ao final do arquivo. `|` redireciona saída de um comando para outro.
 - `head` mostra as primeiras 10 linhas. Já o `tail` mostra as primeiras 10 últimas. Para alterar o número de linhas, adicionar o parâmetro `-n`, seguido da quantidade desejada.
 
+### Arquivos referentes a usuários
+Há quatro arquivos básicos (todos localizados no diretório `/etc/`) que dizem respeito à administração de usuários, sendo eles:
+- `passwd`: contém as informações dos usuários;
+- `shadow`: contém as informações das senhas dos usuários;
+- `group`: contém informação dos grupos e usuários que fazem parte dele;
+- `gshadow`: contém informações a respeito das senhas de grupo.
+
 ### Arquivo passwd
 - Arquivo de configurações do usuário
 - Localizado no `/etc/passwd`
 - As senhas vem do arquivo `/etc/shadow`
-- Contém 7 colunas: nome, senha (substituída por um x), UID, GID, data de modificação, diretório base e shell
+- Contém 7 colunas: nome, senha (substituída por um x), UID, GID, informações do usuário (GECOS), diretório base e shell
