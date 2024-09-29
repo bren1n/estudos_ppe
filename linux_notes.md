@@ -46,6 +46,7 @@
 - `chown`: altera dono e/ou grupo de arquivos e diretórios. Formato `chown dono:grupo arquivo`
 - `passwd`: alterar ou adicionar senha para usuário
 - `gpasswd`: administrar o arquivo gpasswd. Adicionar ou remover usuários de grupos
+- `updatedb` atualiza banco de dados de nome de arquivos acessado com o comando locate.
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -112,6 +113,7 @@ Há quatro arquivos básicos (todos localizados no diretório `/etc/`) que dizem
 ### Permissão padrão para diretórios e arquivos
 - Ao criar um diretório com o comando `mkdir`, a permissão padrão é 777 (leitura, escrita e execução) para dono, grupo e outros.
 - Ao criar um arquivo com o comando `touch`, a permissão padrão é 666 (leitura e escrita) para dono, grupo e outros.
+- Para executáveis, a permissão padrào é 555 (leitura e execução) para dono, grupo e outros.
 
 ### FACL (File Access Control List)
 - Lista de controle de acesso a arquivos e diretórios
@@ -137,3 +139,26 @@ A permissão é no formato "triplex". Formato UGOA utilizado para indicar para q
 alias nomealias='comando'
 ```
 - Para listar alias criados, utilizar comando `alias`. Para remover um alias, `unalias nomealias`.
+
+### Crontab
+- Agendamento de comandos
+- Crontab do usuário fica no caminho `/var/spool/cron/crontabs/usuario`. Crontab do sistema fica em `/etc/crontab`
+- Padrão do comando
+    ```scss
+    *  *  *  *  * usuario(se for crontab do sistema) comando_a_ser_executado
+    -  -  -  -  -
+    |  |  |  |  |
+    |  |  |  |  +--- Dia da semana (0 - 7) (domingo = 0 ou 7)
+    |  |  |  +----- Mês (1 - 12)
+    |  |  +------- Dia do mês (1 - 31)
+    |  +--------- Hora (0 - 23)
+    +----------- Minuto (0 - 59)
+    ```
+- O caractere "/" define o valor de intervalo entre os números especificados na hora e/ou na data.
+- O caractere "*" significa todos para a unidade de tempo desejada
+- Caso o caractere "*" seja seguido pelo "/" e um número, então este número representa o intervalo entre os números do intervalo completo.
+- `tail -f /var/log/cron` exibe os eventos executados
+- `/etc/init.d/cron`: serviço do cron
+- Existem ainda 4 diretórios que facilitam o agendamento de tarefas: `/etc/cron.hourly`, `/etc/cron.daily`, `/etc/cron.weekly` e `/etc/cron.monthly`
+- `/etc/cron.allow` indica usuários que podem usar a cron. `/etc/cron.deny` indica usuários que não poderão usar. Caso nenhum dos dois arquivos existam, apenas o root poderá fazer agendamentos
+- Para o usuário agendar uma tarefa, comando `crontab -e`. `-l` para listar, `-r` para remover o arquivo do usuário, `-u usuario` para especificar usuário do arquivo
