@@ -2,6 +2,7 @@
 - `nslookup`: informações de DNS da máquina
 - `ifconfig`: informações de IP e MAC de todas as interfaces de rede ou de uma interface específica. Pode ser utilizado para habilitar ou desabilitar interfaces de rede, definir máscara de rede, broadcast, etc.
 - `route`: visualiza e altera informações sobre gateway
+- `route -n`: tabela de roteamento no kernel
 - `hostname`: visualiza nome da máquina ou do servidor. Também é possível alterar dinamicamente o nome da máquina com ele
 - `traceroute`: traça rota para um endereço de destino
 - `netstat`: informações sobre as conexões de rede, tabelas de roteamento e estatísticas da utilização da interface na rede.

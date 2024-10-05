@@ -40,13 +40,14 @@
 - `adduser`: criar novo usuário. Comando mais completo. Versão mais simples é o `useradd`
 - `userdel`: apagar usuário
 - `usermod`: renomear e modificar usuário
-- `chage`: expirar senha
+- `chage`: expirar senha. Para expirar senha no próximo login, `chage -d 0 usuario`
 - `umask`: máscara de proteção nas permissões de um arquivo, diretório ou script
 - `chgrp`: alterar grupo de arquivos
 - `chown`: altera dono e/ou grupo de arquivos e diretórios. Formato `chown dono:grupo arquivo`
 - `passwd`: alterar ou adicionar senha para usuário
 - `gpasswd`: administrar o arquivo gpasswd. Adicionar ou remover usuários de grupos
 - `updatedb` atualiza banco de dados de nome de arquivos acessado com o comando locate.
+- `rm -i`: remover com confirmação
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -93,6 +94,7 @@
 - `>` redireciona a saída de um comando em um arquivo, sobrescrevendo seu conteúdo caso exista ou criando o arquivo caso ele não exista. `>>` adiciona ao final do arquivo. `|` redireciona saída de um comando para outro.
 - `head` mostra as primeiras 10 linhas. Já o `tail` mostra as primeiras 10 últimas. Para alterar o número de linhas, adicionar o parâmetro `-n`, seguido da quantidade desejada.
 - No modo texto, para abrir novos terminais, usa-se CTRL + Alt + F1-F6
+- No início de todo arquivo .sh, adicionar a linha `#!/bin/bash`
 
 ### Arquivos referentes a usuários
 Há quatro arquivos básicos (todos localizados no diretório `/etc/`) que dizem respeito à administração de usuários, sendo eles:
@@ -162,3 +164,4 @@ alias nomealias='comando'
 - Existem ainda 4 diretórios que facilitam o agendamento de tarefas: `/etc/cron.hourly`, `/etc/cron.daily`, `/etc/cron.weekly` e `/etc/cron.monthly`
 - `/etc/cron.allow` indica usuários que podem usar a cron. `/etc/cron.deny` indica usuários que não poderão usar. Caso nenhum dos dois arquivos existam, apenas o root poderá fazer agendamentos
 - Para o usuário agendar uma tarefa, comando `crontab -e`. `-l` para listar, `-r` para remover o arquivo do usuário, `-u usuario` para especificar usuário do arquivo
+- Para executar scripts shell, colocar sempre o ./ ou sh no comando
