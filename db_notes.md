@@ -86,7 +86,7 @@ VALUES (1, 'Breno', 'Desenvolvedor backend');
 ```sql
 -- Where opcional. Caso não utilizado, altera todos os registros
 UPDATE pessoa
-SET profissao = '3º SGT da FAB'
+SET profissao = '3º SGT da FAB', nome = 'Breno'
 WHERE id = 1;
 ```
 
@@ -114,8 +114,8 @@ SELECT id, profissao FROM pessoa WHERE id = 1;
 - **<** : Menor que
 - **>=** : Maior ou igual
 - **<=** : Menor ou igual
-- **BETWEEN** : Dentro de um intervalo
-- **IN** : Dentro de uma lista
+- **BETWEEN X AND Y** : Dentro de um intervalo
+- **IN (X, Y, ...)** : Dentro de uma lista
 - **NOT IN** : Fora de uma lista
 - **LIKE** : Padrão em string
 - **IS NULL** : Valor é `NULL`

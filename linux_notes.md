@@ -15,7 +15,7 @@
 - `free`: Informações de uso de memória
 - `rmdir`: remover diretório vazio
 - `date`: exibe ou seta informações atuais de data
-- `uname`: exibe informações sobre o SO
+- `uname`: exibe informações sobre o SO, como verdsão de kernel, data, versão do SO, bits, etc.
 - `du`: exibe uso do disco (tamanho) para arquivos e diretórios
 - `man <comando>`: exibir manual de comando. Uma opção útil para visualizar o guia do comando é usar o parâmetro `--help`. Os manuais estão disponíveis no diretório `/usr/share/man/`
 - `touch`: criar arquivos
@@ -37,7 +37,7 @@
 - `fdisk -l`: similar ao df, porém mais completo e somente usado pelo admin
 - `tr`: traduzir ou transformar caracteres
 - `chmod`: alterar permissão em arquivos e diretórios no modo UGOA ou octal
-- `adduser`: criar novo usuário. Comando mais completo. Versão mais simples é o `useradd`
+- `adduser`: criar novo usuário (bash). Comando mais completo. Versão mais simples é o `useradd` (sh)
 - `userdel`: apagar usuário
 - `usermod`: renomear e modificar usuário
 - `chage`: expirar senha. Para expirar senha no próximo login, `chage -d 0 usuario`
@@ -48,6 +48,51 @@
 - `gpasswd`: administrar o arquivo gpasswd. Adicionar ou remover usuários de grupos
 - `updatedb` atualiza banco de dados de nome de arquivos acessado com o comando locate.
 - `rm -i`: remover com confirmação
+- `sudo apt-get update`: atualizar lista de repositórios (arquivo /etc/apt/sources.list)
+- `sudo apt-get upgrade`: atualizar lista de repositórios e instala atualizações
+- `pstree`: mostrar processos em forma de árvore
+- `ln -s`: cria link simbólico
+- `md5sum`: gerar checksum de md5 de arquivo
+- `kill`: matar processo. `kill -9` para matar forçadamente
+- `whoami`: exibe usuário logado
+- `cal`: exibe calendário
+- `mailq`: exibe fila de emails
+- `nohup`: executa comando mesmo depois de logoff
+- `renice <+|-numero> -p <pid>`: altera prioridade de processo
+
+### Opções Comuns de `tar`
+#### Compactação
+- `-c` : Cria um novo arquivo.
+- `-f <arquivo>` : Nome do arquivo.
+- `-z` : Gzip.
+- `-j` : Bzip2.
+- `-J` : XZ.
+- `-v` : Modo verbose.
+
+#### Exemplo de Compactação
+```bash
+tar -czvf arquivo.tar.gz /caminho/do/diretorio
+```
+#### Descompactação
+- `-x` : Extrai o arquivo.
+- `-f <arquivo>` : Nome do arquivo.
+- `-z` : Gzip.
+- `-j` : Bzip2.
+- `-J` : XZ.
+- `-v` : Modo verbose.
+
+#### Exemplo de Descompactação
+```bash
+tar -xzvf arquivo.tar.gz
+```
+#### Outras Opções Úteis
+- `-t` : Lista o conteúdo do arquivo.
+- `-C <diretorio>` : Altera para o diretório especificado antes de extrair ou criar o arquivo.
+
+####Exemplo de Listagem
+```bash
+tar -tzvf arquivo.tar.gz
+```
 
 ### Tipos de arquivos retornados pelo ls -l
 - **`-`**: Arquivo regular. Pode ser um arquivo de texto, binário, ou qualquer outro tipo de arquivo comum.
@@ -89,12 +134,17 @@
     | 7           | 111           | rwx  | rwx        | permissão de leitura, gravação e execução|
 - CTRL + R abre busca para procurar último comando digitado por uma string
 - `;` executa vários comandos em uma única linha independente do resultado deles. `&&` executa o próximo comando somente se o anterior for bem sucedido. `||` executa o próximo comando somente se o anterior for mal sucedido.
+- `&` ao final do comando executa ele em segundo plano
 - `mkdir -p` cria os diretórios que não existem também
 - `cp -r` copia diretórios recursivamente
 - `>` redireciona a saída de um comando em um arquivo, sobrescrevendo seu conteúdo caso exista ou criando o arquivo caso ele não exista. `>>` adiciona ao final do arquivo. `|` redireciona saída de um comando para outro.
 - `head` mostra as primeiras 10 linhas. Já o `tail` mostra as primeiras 10 últimas. Para alterar o número de linhas, adicionar o parâmetro `-n`, seguido da quantidade desejada.
 - No modo texto, para abrir novos terminais, usa-se CTRL + Alt + F1-F6
 - No início de todo arquivo .sh, adicionar a linha `#!/bin/bash`
+- Executando o `ps`, a coluna ttr = ? indica que o processo executa independente de terminal
+- `grep -v` retorna linhas que não coincidem com o termo buscado
+- Ao ter dúvidas sobre o comando que usar, use o apropos ou info
+- No modo octal, 4 = leitura, 2 = escrita, 1 = execução. Para obter o número relativo à permissão, basta fazer a soma. Ex.: 4+2 = leitura e escrita
 
 ### Arquivos referentes a usuários
 Há quatro arquivos básicos (todos localizados no diretório `/etc/`) que dizem respeito à administração de usuários, sendo eles:

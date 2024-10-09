@@ -5,9 +5,11 @@
 - `route -n`: tabela de roteamento no kernel
 - `hostname`: visualiza nome da máquina ou do servidor. Também é possível alterar dinamicamente o nome da máquina com ele
 - `traceroute`: traça rota para um endereço de destino
-- `netstat`: informações sobre as conexões de rede, tabelas de roteamento e estatísticas da utilização da interface na rede.
+- `netstat`: informações sobre as conexões de rede, tabelas de roteamento e estatísticas da utilização da interface na rede. `netstat -tulpn` verifica portas abertas na máquina
 - `ssh nome@endereco`: acesso remoto
 - `scp arquivo nome@endereco:caminho`: enviar arquivos remotamente
+- `uptime`: exibe tempo de login
+- `w`: exibe tempo de conexão
 
 ### Conceitos importantes
 - **DNS**: resolve IPs em nomes
@@ -15,10 +17,11 @@
 - **IP**: endereço lógico da máquina na rede
 - **Gateway**: intermediário de comunicação entre redes. Porta de entrada e saída da rede. Normalmente, esse dispositivo é um roteador. Levar dados de uma rede interna para uma rede externa (seja intranet ou internet)
 - **Máscara de sub-rede**: usado principalmente para limitar a quantidade de dispositivos na rede.
-- O principal arquivo para configuração de redes no Linux é o `/etc/network/interfaces`
+- O principal arquivo para configuração de redes no Linux é o `/etc/network/interfaces`. Alteração de informações como o gateway são feitas por ele
 - Arquivo para mapear nomes em endereços IP é o `/etc/hosts`. A sintaxe é "IP nome apelido"
 - `/proc/net/wireless` mostra informações de redes sem fio.
 - `/etc/resolv.conf`: configurações de DNS
+- `/etc/init.d/networking`: principal serviço de rede
 
 ### Padrão para crimpagem de cabos par trançado
 - 568A: BV - V - BL - A - BA - L - BM - M
