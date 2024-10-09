@@ -55,6 +55,7 @@
 - `md5sum`: gerar checksum de md5 de arquivo
 - `kill`: matar processo. `kill -9` para matar forçadamente
 - `whoami`: exibe usuário logado
+- `id`: exibe ID e GID do usuário logado
 - `cal`: exibe calendário
 - `mailq`: exibe fila de emails
 - `nohup`: executa comando mesmo depois de logoff
