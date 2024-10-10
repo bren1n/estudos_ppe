@@ -1,5 +1,5 @@
 ### Comandos importantes de rede para Linux
-- `nslookup`: informações de DNS da máquina
+- `nslookup`: informações de DNS da máquina. `nslookup localhost` para visualizar informações ativas na máquina
 - `ifconfig`: informações de IP e MAC de todas as interfaces de rede ou de uma interface específica. Pode ser utilizado para habilitar ou desabilitar interfaces de rede, definir máscara de rede, broadcast, etc.
 - `route`: visualiza e altera informações sobre gateway
 - `route -n`: tabela de roteamento no kernel
@@ -12,7 +12,7 @@
 - `w`: exibe tempo de conexão
 
 ### Conceitos importantes
-- **DNS**: resolve IPs em nomes
+- **DNS**: resolve IPs em nomes. Se o DNS falha, `/etc/hosts` é utilizado
 - **DHCP**: distribuição de IPs dinamicamente. Se o DHCP falha, o dispositivo gera um APIPA (faixa de endereço 169.254...)
 - **IP**: endereço lógico da máquina na rede
 - **Gateway**: intermediário de comunicação entre redes. Porta de entrada e saída da rede. Normalmente, esse dispositivo é um roteador. Levar dados de uma rede interna para uma rede externa (seja intranet ou internet)
@@ -21,6 +21,7 @@
 - Arquivo para mapear nomes em endereços IP é o `/etc/hosts`. A sintaxe é "IP nome apelido"
 - `/proc/net/wireless` mostra informações de redes sem fio.
 - `/etc/resolv.conf`: configurações de DNS
+- `/etc/services` lista as portas usadas pelos serviços da máquina
 - `/etc/init.d/networking`: principal serviço de rede
 
 ### Padrão para crimpagem de cabos par trançado
