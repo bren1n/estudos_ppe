@@ -31,7 +31,7 @@
 - `info`: retorna informações traduzidas do comando
 - `whereis`: retorna localização dos dados do comando e a manpage
 - `which`: retorna localiazção do binário do comando
-- `tar`: empacotamento e compressão
+- `tar`: empacotamento e compressão de arquivos (utilizados principalmente em arquivos .gz ou .tar.gz)
 - `df -h`: tamanho do dispositivo de armazenamento, sistema de arquivos, etc
 - `mount`: visualizar partições montadas. Montar dispositivos
 - `fdisk -l`: similar ao df, porém mais completo e somente usado pelo admin
@@ -60,6 +60,10 @@
 - `mailq`: exibe fila de emails
 - `nohup`: executa comando mesmo depois de logoff
 - `renice <+|-numero> -p <pid>`: altera prioridade de processo
+- `tree`: exibe árvore de diretórios
+- `pkill`: matar processo pelo nome do app utilizado
+- `zip`: compactar com aplicativo ZIP
+- `unzip`: descompactar arquivos .zip
 
 ### Opções Comuns de `tar`
 #### Compactação
@@ -112,6 +116,7 @@ tar -tzvf arquivo.tar.gz
 - `/etc/shadow` - Arquivo que contém senhas do sistema
 - `/etc/profile` - Arquivo que contém configurações e variáveis de ambiente do usuário
 - `/var/log/syslog` - Principal arquivo de syslog. Caso o syslog não esteja instalado, `/var/messages`.
+- `/var/spool/mail/` - Fila de emails
 
 
 ### Visualizadores de arquivos

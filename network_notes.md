@@ -10,6 +10,7 @@
 - `scp arquivo nome@endereco:caminho`: enviar arquivos remotamente
 - `uptime`: exibe tempo de login
 - `w`: exibe tempo de conexão
+- `nmap localhost`: exibe portas abertas na máquina
 
 ### Conceitos importantes
 - **DNS**: resolve IPs em nomes. Se o DNS falha, `/etc/hosts` é utilizado
@@ -23,6 +24,7 @@
 - `/etc/resolv.conf`: configurações de DNS
 - `/etc/services` lista as portas usadas pelos serviços da máquina
 - `/etc/init.d/networking`: principal serviço de rede
+- `/etc/hosts`: dá pra alterar o nome da máquina por ele
 
 ### Padrão para crimpagem de cabos par trançado
 - 568A: BV - V - BL - A - BA - L - BM - M
