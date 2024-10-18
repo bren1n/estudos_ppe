@@ -25,6 +25,7 @@
 - `/etc/services` lista as portas usadas pelos serviços da máquina
 - `/etc/init.d/networking`: principal serviço de rede
 - `/etc/hosts`: dá pra alterar o nome da máquina por ele
+- `/etc/exports`: configuração de servidor NFS
 
 ### Padrão para crimpagem de cabos par trançado
 - 568A: BV - V - BL - A - BA - L - BM - M

@@ -125,6 +125,71 @@ SELECT id, profissao FROM pessoa WHERE id = 1;
 - **AND**: E
 - **OR**: Ou
 
+### Tipos Essenciais de Dados no MySQL
+
+#### Numéricos
+
+- **INT**
+  - Armazena inteiros normais.
+  - Faixa: -2,147,483,648 a 2,147,483,647 (ou 0 a 4,294,967,295 se UNSIGNED).
+  - Tamanho: 4 bytes.
+
+- **DECIMAL(M,D)**
+  - Armazena números decimais.
+  - M representa o número total de dígitos.
+  - D representa o número de dígitos após o ponto decimal.
+  - Tamanho: Dependente de M e D.
+
+- **FLOAT**
+  - Armazena números de ponto flutuante de precisão simples.
+  - Precisão: Aproximadamente 7 dígitos decimais.
+  - Tamanho: 4 bytes.
+
+- **DOUBLE**
+  - Armazena números de ponto flutuante de precisão dupla.
+  - Precisão: Aproximadamente 15 dígitos decimais.
+  - Tamanho: 8 bytes.
+
+#### Textos
+
+- **CHAR(N)**
+  - Armazena uma string de comprimento fixo.
+  - N é o comprimento da string (máximo de 255 caracteres).
+  - Tamanho: N bytes.
+
+- **VARCHAR(N)**
+  - Armazena uma string de comprimento variável.
+  - N é o comprimento máximo da string (máximo de 65.535 bytes).
+  - Tamanho: Depende do valor armazenado.
+
+- **TEXT**
+  - Armazena grandes cadeias de caracteres.
+  - Limite: 65.535 caracteres.
+  - Tamanho: Dependente do valor armazenado.
+
+#### Data e Hora
+
+- **DATE**
+  - Armazena uma data no formato `AAAA-MM-DD`.
+  - Faixa: 1000-01-01 a 9999-12-31.
+  - Tamanho: 3 bytes.
+
+- **DATETIME**
+  - Armazena data e hora no formato `AAAA-MM-DD HH:MM:SS`.
+  - Faixa: 1000-01-01 00:00:00 a 9999-12-31 23:59:59.
+  - Tamanho: 8 bytes.
+
+- **TIMESTAMP**
+  - Armazena data e hora como uma representação UNIX (desde 1970-01-01).
+  - Faixa: 1970-01-01 00:00:01 UTC a 2038-01-19 03:14:07 UTC.
+  - Tamanho: 4 bytes.
+
 ### Algumas dicas
 - Para checar se um valor é nulo, é necessário usar `IS NULL` ou `IS NOT NULL`. O `NULL` não aceita o uso do igual.
 - No `LIKE`, % indica "qualquer coisa". _ indica que 
+- Para contar quantos objetos existem em cada valor de algum atributo, use `GROUP BY`. Normalmente utilizado com funções de agregação, como `SUM`, `AVG`, `COUNT`, `MIN` e `MAX`
+    ```sql
+    SELECT COUNT(*) AS qtd, profissao FROM pessoa
+    GROUP BY profissao;
+    ```
+- `LIMIT <n>` limita o comando a n linhas.

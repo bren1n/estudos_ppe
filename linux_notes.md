@@ -60,6 +60,7 @@
 - `mailq`: exibe fila de emails
 - `nohup`: executa comando mesmo depois de logoff
 - `renice <+|-numero> -p <pid>`: altera prioridade de processo
+- `nice -n <+|-numero> <comando>`: altera prioridade de um comando
 - `tree`: exibe árvore de diretórios
 - `pkill`: matar processo pelo nome do app utilizado
 - `zip`: compactar com aplicativo ZIP
@@ -221,3 +222,29 @@ alias nomealias='comando'
 - `/etc/cron.allow` indica usuários que podem usar a cron. `/etc/cron.deny` indica usuários que não poderão usar. Caso nenhum dos dois arquivos existam, apenas o root poderá fazer agendamentos
 - Para o usuário agendar uma tarefa, comando `crontab -e`. `-l` para listar, `-r` para remover o arquivo do usuário, `-u usuario` para especificar usuário do arquivo
 - Para executar scripts shell, colocar sempre o ./ ou sh no comando
+
+Aqui está a informação em formato de lista markdown:
+
+### Comando ps
+#### Estilo UNIX (com traço `-`):
+- **`-e`**: Lista todos os processos no sistema (equivalente a `-A`).
+- **`-f`**: Exibe informações completas sobre os processos (UID, PID, PPID, etc.).
+- **`-u [usuário]`**: Mostra os processos pertencentes a um determinado usuário.
+- **`-a`**: Exibe todos os processos associados a terminais, exceto processos de líderes de sessão.
+- **`-x`**: Inclui processos que não estão controlados por um terminal (daemons).
+- **`-l`**: Exibe a listagem em formato longo (com mais detalhes).
+- **`-o`**: Personaliza a saída do comando especificando os campos a serem mostrados (ex: `ps -o pid,user,%cpu,%mem,command`).
+
+#### Estilo BSD (sem traço):
+- **`a`**: Exibe processos de todos os usuários, incluindo os processos de outros usuários com terminais.
+- **`x`**: Mostra processos que não estão associados a terminais.
+- **`u`**: Exibe a saída detalhada de processos (similar ao `-f` no estilo UNIX), com informações como o uso de CPU e memória.
+- **`r`**: Exibe apenas os processos que estão em execução (running).
+
+#### Combinações populares:
+- **`ps aux`**: Mostra todos os processos no estilo BSD com detalhes.
+- **`ps -ef`**: Lista todos os processos no estilo UNIX com informações detalhadas.
+
+#### Outros exemplos úteis:
+- **`ps -p [PID]`**: Mostra informações sobre o processo com o PID especificado.
+- **`ps --sort`**: Ordena a saída de acordo com um critério (ex: uso de CPU ou memória, `ps aux --sort=-%cpu`).
