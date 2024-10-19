@@ -65,6 +65,9 @@
 - `pkill`: matar processo pelo nome do app utilizado
 - `zip`: compactar com aplicativo ZIP
 - `unzip`: descompactar arquivos .zip
+- `groupadd`: adiciona grupo
+- `groupdel`: deleta grupo
+- `groupmod`: modifica grupo
 
 ### Opções Comuns de `tar`
 #### Compactação
@@ -189,6 +192,17 @@ A permissão é no formato "triplex". Formato UGOA utilizado para indicar para q
 - Sticky bit: Focada no diretório /tmp/. Octal 1.
 - No modo triplex, o rws no triplex 1 indica SUID, o rws no triplex 2 indica SGID e rwt no triplex 3 indica sticy bit.
 - No modo octal, a permissão especial assumme o primeiro dígito. Ex.: 4777
+    ```bash
+    # Adiciona SUID
+    chmod u+s arquivo
+
+    #Adiciona GUID
+    chmod g+s arquivo
+
+    #Adiciona sticky bit
+    chmod o+t arquivo
+    chmod +t arquivo
+    ```
 
 ### Alias
 - Apelidos definidos para um comando ou conjunto de comandos
